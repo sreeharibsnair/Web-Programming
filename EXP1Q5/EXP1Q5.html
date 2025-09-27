@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KMCT College of Engineering - Student Registration Form</title>
+</head>
+<body bgcolor="lightyellow">
+
+    <h1 align="center">KMCT College of Engineering</h1>
+    <h2 align="center">Student Registration Form</h2>
+    <hr>
+
+    <form>
+
+        <input type="hidden" name="formtype" value="student registration">
+
+        <p>
+            Full Name: <br>
+            <input type="text" name="fullname" size="30" maxlength="50" required>
+        </p>
+
+        <p>
+            Roll Number: <br>
+            <input type="text" name="roll" size="15" maxlength="15">
+        </p>
+
+        <p>
+            Email: <br>
+            <input type="text" name="email" size="30">
+        </p>
+
+        <p>
+            Password: <br>
+            <input type="password" name="password" size="20" maxlength="25">
+        </p>
+
+        <p>
+            Gender: <br>
+            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" name="gender" value="Female"> Female
+            <input type="radio" name="gender" value="Other"> Other
+        </p>
+
+        <p>
+            Hobbies: <br>
+            <input type="checkbox" name="hobby" value="Reading"> Reading
+            <input type="checkbox" name="hobby" value="Sports"> Sports
+            <input type="checkbox" name="hobby" value="Music"> Music
+            <input type="checkbox" name="hobby" value="Traveling"> Traveling
+        </p>
+
+        <p>
+            Select the Course: <br>
+            <select name="course">
+                <option value="MCA">MCA</option>
+                <option value="B.Tech">B.Tech</option>
+                <option value="M.Tech">M.Tech</option>
+                <option value="MBA">MBA</option>
+            </select>
+        </p>
+
+        <p>
+            Previous Course: <br>
+            <select name="previous_course">
+                <option value="B.Sc">B.Sc</option>
+                <option value="BCA">BCA</option>
+                <option value="Diploma">Diploma</option>
+                <option value="Other">Other</option>
+            </select>
+        </p>
+
+        <p>
+            Address: <br>
+            <textarea name="address" rows="4" cols="40"></textarea>
+        </p>
+
+        <p>
+            Upload your photo: <br>
+            <input type="file" name="student file" size="30">
+        </p>
+
+
+        <p>
+            <input type="submit" value="Register">
+            <input type="reset" value="Clear Form">
+        </p>
+
+    </form>
+
+</body>
+</html>
+
