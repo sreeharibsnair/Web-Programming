@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String & Math Functions</title>
+</head>
+<body>
+    <h1>String & Math Functions</h1>
+    <h2>String Functions</h2>
+    <script>
+        var text=prompt("Enter a string:");
+        document.write("Original: " + text + "<br>" +
+                       "Length: " + text.length + "<br>" +
+                       "Uppercase: " + text.toUpperCase() + "<br>" +
+                       "Lowercase: " + text.toLowerCase() + "<br>" +
+                       "Char at 1: " + text.charAt(1) + "<hr>");
+    </script>  
+    <hr>
+    <h2>Math Functions</h2>     
+    <script>                            
+
+        var num=parseFloat(prompt("Enter a number:"));
+        document.write("Number: " + num + "<br>" +
+                       "Round: " + Math.round(num) + "<br>" +
+                       "Ceil: " + Math.ceil(num) + "<br>" +
+                       "Floor: " + Math.floor(num) + "<br>" +
+                       "Sqrt(25): " + Math.sqrt(25));
+    </script>
+</body>
+</html>
