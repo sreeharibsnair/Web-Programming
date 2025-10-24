@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head><title>Predefined Functions</title></head>
+<body bgcolor="pink">
+<h1 align="center">String & Math Functions</h1>
+
+<h2>String Functions</h2>
+<script>
+var s1 = prompt("Enter first string:");
+var s2 = prompt("Enter second string:");
+document.write(
+"<b>Original:</b> " + s1 + "<br>" +
+"Length: " + s1.length + "<br>" +
+"Upper: " + s1.toUpperCase() + "<br>" +
+"Lower: " + s1.toLowerCase() + "<br>" +
+"charAt(1): " + s1.charAt(1) + "<br>" +
+"Concat: " + s1.concat(" ", s2) + "<br>" +
+"indexOf('a'): " + s1.indexOf("a") + "<br>" +
+"lastIndexOf('a'): " + s1.lastIndexOf("a") + "<br>" +
+"slice(2,5): " + s1.slice(2,5) + "<br>" +
+"trim(): '" + s1.trim() + "'<br>" +
+"split(' '): " + s1.split(" ") + "<hr>"
+);
+</script>
+
+<h2>Math Functions</h2>
+<script>
+var n = parseFloat(prompt("Enter a number:"));
+document.write(
+"<b>Number:</b> " + n + "<br>" +
+"Round: " + Math.round(n) + "<br>" +
+"Ceil: " + Math.ceil(n) + "<br>" +
+"Floor: " + Math.floor(n) + "<br>" +
+"Abs: " + Math.abs(n) + "<br>" +
+"Sqrt(25): " + Math.sqrt(25) + "<br>" +
+"Pow(2,5): " + Math.pow(2,5) + "<br>" +
+"Random: " + Math.random()
+);
+</script>
+</body>
+</html>
