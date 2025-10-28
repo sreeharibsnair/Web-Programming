@@ -14,12 +14,12 @@ document.write(
 "Upper: " + s1.toUpperCase() + "<br>" +
 "Lower: " + s1.toLowerCase() + "<br>" +
 "charAt(1): " + s1.charAt(1) + "<br>" +
-"Concat: " + s1.concat(" ", s2) + "<br>" +
-"indexOf('a'): " + s1.indexOf("a") + "<br>" +
-"lastIndexOf('a'): " + s1.lastIndexOf("a") + "<br>" +
+"Concat: " + s1.concat(' ', s2) + "<br>" +
+"indexOf('a'): " + s1.indexOf('a') + "<br>" +
+"lastIndexOf('a'): " + s1.lastIndexOf('a') + "<br>" +
 "slice(2,5): " + s1.slice(2,5) + "<br>" +
 "trim(): '" + s1.trim() + "'<br>" +
-"split(' '): " + s1.split(" ") + "<hr>"
+"split(' '): " + s1.split(' ') + "<hr>"
 );
 </script>
 
@@ -32,9 +32,10 @@ document.write(
 "Ceil: " + Math.ceil(n) + "<br>" +
 "Floor: " + Math.floor(n) + "<br>" +
 "Abs: " + Math.abs(n) + "<br>" +
-"Sqrt(25): " + Math.sqrt(25) + "<br>" +
-"Pow(2,5): " + Math.pow(2,5) + "<br>" +
-"Random: " + Math.random()
+"Sqrt: " + Math.sqrt(n) + "<br>" +
+"Square (n²): " + Math.pow(n, 2) + "<br>" +
+"Cube (n³): " + Math.pow(n, 3) + "<br>" +
+"Random (0–n): " + (Math.random() * n).toFixed(3)
 );
 </script>
 </body>
