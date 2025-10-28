@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calendar</title>
+<style>
+body {
+  text-align: center;
+  background-color: wheat;
+  font-family: Arial, sans-serif;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  margin: auto;
+}
+h1 {
+  color: purple;
+}
+h2, h3 {
+  color: brown;
+}
+</style>
+</head>
+<body>
+<h1>Calendar Generator</h1>
+
+<script>
+var year = parseInt(prompt("Enter year:"));
+var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+var days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+
+document.write("<h2>Calendar for "+year+"</h2>");
+
+for(let m=0;m<12;m++){
+  document.write("<h3>"+months[m]+"</h3><table><tr>");
+  for(let d=0;d<7;d++) document.write("<th>"+days[d]+"</th>");
+  document.write("</tr><tr>");
+
+  let first=new Date(year,m,1).getDay();
+  let total=new Date(year,m+1,0).getDate();
+
+  for(let i=0;i<first;i++) document.write("<td></td>");
+  for(let day=1;day<=total;day++){
+    let cur=new Date(year,m,day).getDay();
+    document.write("<td>"+day+"</td>");
+    if(cur==6 && day!=total) document.write("</tr><tr>");
+  }
+  document.write("</tr></table>");
+}
+</script>
+</body>
+</html>
