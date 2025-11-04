@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Online Exam</title>
+</head>
+<body style="font-family:Arial; background:#fffbe6; padding:18px; max-width:700px; margin:12px auto;">
+  <h2 style="text-align:center;">Online Exam</h2>
+
+  <div style="text-align:center; margin-bottom:12px;">
+    Time left: <span id="timer">00:30</span>
+  </div>
+  <form id="examForm">
+    <p>1. Whats the national symbol of India?<br>
+      <input type="radio" name="q1" value="Ashoka Stambh">Ashoka Stambh
+      <input type="radio" name="q1" value="Lotus">Lotus
+      <input type="radio" name="q1" value="Peacock">Peacock
+      <input type="radio" name="q1" value="Banyan Tree">Elephant
+    </p>
+    <p>2. Which is not a planet?<br>
+      <input type="radio" name="q2" value="Earth">Earth
+      <input type="radio" name="q2" value="Moon">Moon
+      <input type="radio" name="q2" value="Mars">Mars
+      <input type="radio" name="q2" value="Jupiter">Jupiter
+    </p>
+    <p>3. Which is used to create web pages?<br>
+      <input type="radio" name="q3" value="C++">C++
+      <input type="radio" name="q3" value="HTML">HTML
+      <input type="radio" name="q3" value="Python">Python
+      <input type="radio" name="q3" value="Java">Java
+    </p>
+    <p>4. 5+6=?<br>
+      <input type="radio" name="q4" value="11">11
+      <input type="radio" name="q4" value="13">13
+      <input type="radio" name="q4" value="10">10
+      <input type="radio" name="q4" value="12">12
+    </p>
+    <p>5. Motto of Indian Army?<br>
+      <input type="radio" name="q5" value="Sewa Paramo Dharma">Sewa Paramo Dharma
+      <input type="radio" name="q5" value="Satyameva Jayate">Satyameva jayate
+      <input type="radio" name="q5" value="Vande Mataram">Vande Mataram
+      <input type="radio" name="q5" value="Jai Hind">Jai hind
+    </p>
+    <p>6. National animal of India?<br>
+      <input type="radio" name="q6" value="Tiger">Tiger
+      <input type="radio" name="q6" value="Lion">Lion
+      <input type="radio" name="q6" value="Elephant">Elephan
+      <input type="radio" name="q6" value="Leopard">Leopard
+    </p>
+    <p>7. Who is the current pesident of India?<br>
+      <input type="radio" name="q7" value="Droupadi Murmu">Droupadi Murmu
+      <input type="radio" name="q7" value="Narendra Modi">Narendra Modi
+      <input type="radio" name="q7" value="A. P. J. Abdul Kalam">APJ Abdul Kalam
+      <input type="radio" name="q7" value="Ram Nath Kovind">Ramnathh Kovind
+    </p>
+    <p>8. what is the old name of Madras regiment?<br>
+      <input type="radio" name="q8" value="Travancore Regiment">Gorkha Regiment
+      <input type="radio" name="q8" value="Gorkha Regiment">Nair Brigade
+      <input type="radio" name="q8" value="Rajput Regiment">Rajput Regiment
+      <input type="radio" name="q8" value="Bengal Regiment">Bengal Brigade
+    </p>
+    <p>9. When did Pakistan separated from India?<br>
+      <input type="radio" name="q9" value="1947">1947
+      <input type="radio" name="q9" value="1943">1943
+      <input type="radio" name="q9" value="1950">1950
+      <input type="radio" name="q9" value="1949">1949
+    </p>
+    <p>10. National flower of India?<br>
+      <input type="radio" name="q10" value="Lotus">Lotus
+      <input type="radio" name="q10" value="Rose">Rose
+      <input type="radio" name="q10" value="Jasmine">Jasmine
+      <input type="radio" name="q10" value="Lily">Lily
+    </p>
+    <button type="button" id="submitBtn" onclick="submitExam()">Submit</button>
+  </form>
+  <h3 id="result"></h3>
+  <script>
+    let timeLeft=30;
+    const timer=document.getElementById("timer");
+    const btn=document.getElementById("submitBtn");
+    const timerId=setInterval(()=> {
+      timeLeft--;
+      let m=String(Math.floor(timeLeft/60)).padStart(2,'0');
+      let s=String(timeLeft%60).padStart(2,'0');
+      timer.textContent =`${m}:${s}`;
+      if (timeLeft <= 0) {
+        clearInterval(timerId);
+        submitExam(true);
+      }
+    },1000);
+
+    function submitExam(timeUp=false) {
+      let score=0;
+
+      let q1=document.querySelector('input[name="q1"]:checked');
+      if (q1 &&q1.value==="Ashoka Stambh")score++;
+      let q2=document.querySelector('input[name="q2"]:checked');
+      if (q2 &&q2.value==="Moon")score++;
+      let q3=document.querySelector('input[name="q3"]:checked');
+      if (q3&&q3.value==="HTML")score++;
+      let q4=document.querySelector('input[name="q4"]:checked');
+      if (q4&&q4.value==="11")score++;
+      let q5=document.querySelector('input[name="q5"]:checked');
+      if (q5&&q5.value==="Sewa Paramo Dharma")score++;
+      let q6 = document.querySelector('input[name="q6"]:checked');
+      if (q6&&q6.value==="Tiger")score++;
+      let q7 = document.querySelector('input[name="q7"]:checked');
+      if (q7&&q7.value==="Droupadi Murmu")score++;
+      let q8=document.querySelector('input[name="q8"]:checked');
+      if (q8&&q8.value==="Nair Brigade")score++;
+      let q9= document.querySelector('input[name="q9"]:checked');
+      if (q9&& q9.value==="1947")score++;
+      let q10=document.querySelector('input[name="q10"]:checked');
+      if (q10&&q10.value==="Lotus")score++;
+
+      clearInterval(timerId);
+      btn.disabled=true;
+      document.querySelectorAll("input").forEach(i=>i.disabled=true);
+      document.getElementById("result").textContent =
+        "Your score: "+score+"/10"+(timeUp? "(Time Up)" : "");
+    }
+  </script>
+</body>
+</html>
