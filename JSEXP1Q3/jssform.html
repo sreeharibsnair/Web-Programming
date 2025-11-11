@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Registration Form</title>
+<style>
+  body {
+    font-family: Arial,sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  form {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    width: 320px;
+  }
+  h3 {
+    text-align: center;
+    color: #1565c0;
+    margin-bottom: 15px;
+  }
+  .row {
+    margin-bottom: 12px;
+  }
+  input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 8px;
+  }
+  input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #64b5f6;
+    outline: none;
+    box-shadow: 0 0 5px rgba(100,181,246,0.4);
+  }
+  input[type="submit"] {
+    width: 100%;
+    background-color: #1976d2;
+    color: white;
+    padding: 10px;
+    border: none;
+
+    font-size: 15px;
+  }
+  input[type="submit"]:hover {
+    background-color: #0d47a1;
+  }
+  .ok { color: green; font-size: 13px; margin-left: 4px; }
+  .bad { color: red; font-size: 13px; margin-left: 4px; }
+</style>
+</head>
+<body>
+<form name="f" onsubmit="return validate()">
+  <h3>Registration Form</h3>
+  <div class="row">Name<br><input name="name" oninput="vis()"><span id="n"></span></div>
+  <div class="row">Password<br><input type="password" name="pw" oninput="vis();match()"><span id="p"></span></div>
+  <div class="row">Re-type Password<br><input type="password" name="pw2" oninput="match()"><span id="m"></span></div>
+  <div class="row">Email<br><input name="email"></div>
+  <div class="row">Mobile<br><input name="mobile" maxlength="10"></div>
+  <div class="row"><input type="submit" value="Submit"></div>
+</form>
+
+<script>
+function vis(){
+  var n=document.f.name.value.trim(), p=document.f.pw.value;
+  document.getElementById('n').textContent = n ? '✔️' : ' ✖ Enter name';
+  document.getElementById('n').className = n ? 'ok' : 'bad';
+  document.getElementById('p').textContent = p.length>=6 ? '✔️' : ' ✖ Min 6 chars';
+  document.getElementById('p').className = p.length>=6 ? 'ok' : 'bad';
+}
+function match(){
+  var p=document.f.pw.value, p2=document.f.pw2.value, el=document.getElementById('m');
+  el.textContent = (p && p===p2) ? ' ✔️ Match' : ' ✖ Mismatch';
+  el.className = (p && p===p2) ? 'ok' : 'bad';
+}
+function validate(){
+  var f=document.f, name=f.name.value.trim(), pw=f.pw.value, pw2=f.pw2.value,
+      em=f.email.value.trim(), mob=f.mobile.value.trim();
+  var at=em.indexOf('@'), dot=em.lastIndexOf('.');
+  if(!name){ alert("Name can't be blank"); return false; }
+  if(pw.length<6){ alert('Password must be at least 6 characters.'); return false; }
+  if(pw!==pw2){ alert('Passwords must match.'); return false; }
+  if(at<1 || dot<at+2 || dot+2>=em.length){ alert('Enter a valid email.'); return false; }
+  if(!mob || isNaN(mob)){ alert('Enter numeric mobile number.'); return false; }
+  if(mob.length!==10){ alert('Mobile must be 10 digits.'); return false; }
+  alert('Form valid — submitted successfully!');
+  return true;
+}
+</script>
+</body>
+</html>
