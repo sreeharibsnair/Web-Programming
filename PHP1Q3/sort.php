@@ -1,19 +1,29 @@
+<!DOCTYPE html>
 <html>
-<body bgcolor="ivory">
-<h1>Name of students</h1>
+<head>
+    <title>Student Array Sorting</title>
+</head>
+<body>
 <?php
-$name=["Ihsan","Nihad","Jobin","Sreehari","Sidhu"];
-$t=$name;
-echo "Display using print_r<br>";
-print_r($name);
-echo "<br><br>";
-echo "Sorting using arsort()<br>";
-arsort($t);
-print_r($t);
-echo "<br><br>";
-echo "Sorting using asort()<br>";
-asort($name);
-print_r($name);
+
+$students=array("Nihad","Sreehari","Jobin","Ihsan","Sidhu");
+
+echo "<h2>Original Array:</h2>";
+echo "<pre>";
+print_r($students);
+echo "</pre>";
+
+asort($students);
+echo "<h2>Array sorted in Ascending order:</h2>";
+echo "<pre>";
+print_r($students);
+echo "</pre>";
+
+arsort($students);
+echo "<h2>Array sorted in Descending order:</h2>";
+echo "<pre>";
+print_r($students);
+echo "</pre>";
 ?>
 </body>
 </html>
