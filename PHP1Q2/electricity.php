@@ -1,3 +1,5 @@
+
+<html>
 <body>
 <h1>ELECTRICITY BILL</h1>
 
@@ -44,4 +46,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 </body>
 </html>
-
