@@ -1,7 +1,6 @@
-
-<html>
 <body>
 <h1>ELECTRICITY BILL</h1>
+
 <form method="post" action="#">
 Consumer ID:<input type="number" name="id"><br>
 Name:<input type="text" name="name"><br>
@@ -13,27 +12,31 @@ Billing To:<input type="date" name="to"><br><br>
 </form>
 
 <?php
-if($_SERVER["REQUEST_METHOD"]=="POST"){
-    $id=$_POST["id"];
-    $name=$_POST["name"];
-    $units=$_POST["units"];
-    $from=$_POST["from"];
-    $to=$_POST["to"];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id = $_POST["id"];
+    $name = $_POST["name"];
+    $units = $_POST["units"];
+    $from = $_POST["from"];
+    $to = $_POST["to"];
+
+    // Bill generated date (today)
+    $generated_date = date("Y-m-d");
 
     echo "<h3>KSEB</h3>";
     echo "Consumer ID: $id<br>";
     echo "Consumer Name: $name<br>";
     echo "Units Consumed: $units<br>";
-    echo "Billing Period: $from to $to<br><br>";
+    echo "Billing Period: $from to $to<br>";
+    echo "Bill Generated Date: $generated_date<br><br>";
 
-    if($units<100){
-        $amt=$units*3.25;
-    } elseif($units>100 && $units<=200){
-        $amt=$units*4;
-    } elseif($units>200 && $units<=300){
-        $amt=$units*5;
-    } else{
-        $amt=$units*5;
+    if ($units < 100) {
+        $amt = $units * 3.25;
+    } elseif ($units > 100 && $units <= 200) {
+        $amt = $units * 4;
+    } elseif ($units > 200 && $units <= 300) {
+        $amt = $units * 5;
+    } else {
+        $amt = $units * 5;
     }
 
     echo "<h4>Total: Rs. $amt</h4>";
